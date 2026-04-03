@@ -1,0 +1,25 @@
+---
+title: 评测体系
+layer: L1
+connections: [rag, prompt-engineering]
+hasDemo: false
+summary: 量化 AI 系统质量的方法论，包括离线测试和线上监控
+order: 8
+---
+
+## 是什么
+
+AI 系统的评测 = 评测集 + 评估指标 + 评测框架。让"感觉好不好"变成"指标提升了 X%"。
+
+## 核心工具
+
+- **Ragas**：RAG 系统专用评测（Faithfulness / Context Recall / Answer Correctness）
+- **TruLens**：可观测性 + 评测，适合开发调试
+- **DeepEval**：集成 CI/CD 的自动化测试
+- **LangSmith**：线上监控，实时追踪对话和 Token 消耗
+
+## 产品经理需要知道的
+
+- 评测先行：先建评测基线，再做优化
+- Ground Truth 必须由业务专家提供，不能由技术人员代劳
+- 线上监控三角：Context Relevance + Faithfulness + Answer Relevance

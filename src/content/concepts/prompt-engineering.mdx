@@ -1,0 +1,24 @@
+---
+title: Prompt Engineering
+layer: L1
+connections: [transformer, context-engineering, rag]
+hasDemo: false
+summary: 通过设计输入文本来精确控制大模型输出的技术
+order: 6
+---
+
+## 是什么
+
+通过精心设计 Prompt（输入给大模型的文本），让模型输出符合预期的结果。核心要素：任务目标、上下文、角色设定、输出格式、示例。
+
+## 核心技巧
+
+- **少样本（Few-shot）**：提供 2-3 个输入输出示例
+- **思维链（CoT）**：让模型"一步步思考"
+- **Meta Prompting**：让模型帮你优化 Prompt
+
+## 产品经理需要知道的
+
+- Prompt 是 AI 产品的核心资产，要版本管理
+- 好的 Prompt 让中端模型达到顶级模型 80% 的效果
+- 要建立量化评测，而非靠"感觉好不好"

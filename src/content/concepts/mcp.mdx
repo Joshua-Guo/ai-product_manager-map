@@ -1,0 +1,18 @@
+---
+title: MCP 模型上下文协议
+layer: L2
+connections: [react-agent, pipeline]
+hasDemo: false
+summary: Anthropic 提出的工具标准化协议，让 AI 应用和工具服务解耦
+order: 11
+---
+
+## 是什么
+
+MCP（Model Context Protocol）= 工具的"USB 接口"。工具服务方自己声明能力，AI 应用通过统一协议接入，工具升级时无需修改所有 Agent。
+
+## 产品经理需要知道的
+
+- 没有 MCP：每个 AI 应用都要硬编码工具定义
+- 有了 MCP：工具提供方管自己，AI 应用自动获取最新定义
+- Claude Code 的工具调用机制即基于 MCP

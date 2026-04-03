@@ -1,0 +1,18 @@
+---
+title: Pipeline 流水线
+layer: L2
+connections: [react-agent, moa, hitl]
+hasDemo: false
+summary: 最基础的多步骤工作流，前一步输出严格作为后一步输入
+order: 12
+---
+
+## 是什么
+
+将复杂任务拆分为固定顺序的步骤，单向执行。RAG 问答机器人是典型的 Pipeline：检索 → 构建 Prompt → 生成答案。
+
+## 产品经理需要知道的
+
+- 适合流程固定、步骤清晰的任务
+- 缺点：僵化，无法处理异常和动态情况
+- 进阶：加入分支（Branching）和并行（Parallel）处理异常路径

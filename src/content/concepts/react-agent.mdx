@@ -1,0 +1,19 @@
+---
+title: ReAct Agent
+layer: L2
+connections: [transformer, mcp, planning, reflection]
+hasDemo: true
+demoComponent: ReActDemo
+summary: 思考-行动-观察的循环模式，让 Agent 能自主调用工具完成任务
+order: 9
+---
+
+## 是什么
+
+ReAct = Reasoning + Acting。Agent 遇到任务时：先**思考**（Thought）→ 选择一个**行动**（Action，即调用工具）→ 观察工具返回的**结果**（Observation）→ 再思考，循环直到任务完成。
+
+## 产品经理需要知道的
+
+- ReAct 是目前最主流的 Agent 模式
+- 工具调用的返回结果质量决定 Agent 行为质量
+- 循环次数过多会导致成本失控，需设置 max_steps 上限

@@ -1,0 +1,23 @@
+---
+title: RAG 检索增强生成
+layer: L1
+connections: [embedding, transformer, prompt-engineering, evaluation]
+hasDemo: true
+demoComponent: RagDemo
+summary: 让大模型读外部知识库再回答，解决幻觉和知识截止问题
+order: 5
+---
+
+## 是什么
+
+RAG（Retrieval Augmented Generation）= 检索 + 生成。用户提问时，先从知识库中检索相关内容，再把检索结果塞进 Prompt，让模型基于真实资料回答。
+
+## 在 AI 全栈中的位置
+
+连接 Vector Database（向量数据库）和 Orchestration Framework（编排框架），是企业 AI 应用最常见的架构模式。
+
+## 产品经理需要知道的
+
+- RAG 的核心挑战是"检索质量"，不是"生成质量"
+- 评估指标：Context Recall（查全没）、Context Precision（查准没）、Faithfulness（有没有幻觉）
+- 知识库的文档质量决定 RAG 效果的上限

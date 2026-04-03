@@ -1,0 +1,22 @@
+---
+title: Embedding 向量化
+layer: L0
+connections: [transformer, rag]
+hasDemo: false
+summary: 将文字转换为高维数字向量，让计算机能理解语义相似性
+order: 2
+---
+
+## 是什么
+
+Embedding 是将文本转换为数字向量的过程。语义相近的词，在向量空间中距离也近。
+
+## 在 AI 全栈中的位置
+
+RAG 系统的核心组件，负责将知识库文档和用户问题都转成向量，才能做相似度检索。
+
+## 产品经理需要知道的
+
+- 不同 Embedding 模型效果差异很大，影响 RAG 召回率
+- 向量维度越高，存储成本越高
+- 中文专用 Embedding 模型通常比通用模型效果更好

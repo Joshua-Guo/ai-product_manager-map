@@ -1,0 +1,18 @@
+---
+title: Planning 规划
+layer: L2
+connections: [react-agent, hitl, moa]
+hasDemo: false
+summary: 赋予 Agent 动态分解目标、自主制定行动计划的能力
+order: 15
+---
+
+## 是什么
+
+Planning = Agent 接收高阶目标后，自主将其分解为具体步骤，动态生成并执行行动计划。开发者从"流程设计师"变为"目标设定者"。
+
+## 产品经理需要知道的
+
+- ReAct Agent 执行固定工具；Planning Agent 自己决定做什么、怎么做
+- 规划能力越强，Agent 越自主，但也越难预测和控制
+- 需要配合 HITL 设置关键节点审批，防止"计划失控"

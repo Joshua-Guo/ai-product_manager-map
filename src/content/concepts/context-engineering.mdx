@@ -1,0 +1,18 @@
+---
+title: Context Engineering
+layer: L1
+connections: [prompt-engineering, rag, kv-cache]
+hasDemo: false
+summary: 精准控制送入大模型的上下文内容，在质量和成本之间取得最优平衡
+order: 7
+---
+
+## 是什么
+
+不是把所有信息塞给模型，而是"精准地选择相关信息"。上下文越长，越慢越贵，还可能干扰模型判断（Lost in the Middle 现象）。
+
+## 产品经理需要知道的
+
+- 上下文长度直接影响 Token 成本
+- 结构化组织上下文（用 XML 标签分隔）比无序堆砌效果好
+- 利用 KV Cache 对共享前缀的上下文计费可享折扣

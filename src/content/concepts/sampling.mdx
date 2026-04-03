@@ -1,0 +1,24 @@
+---
+title: 采样策略
+layer: L0
+connections: [transformer]
+hasDemo: false
+summary: 控制大模型输出"随机性"的参数，包括 Temperature、Top-P、Top-K
+order: 4
+---
+
+## 是什么
+
+大模型每次生成下一个词时，会得到所有词的概率分布。采样策略决定如何从这个分布中"选词"。
+
+## 核心参数
+
+- **Temperature**：越低越确定，越高越随机
+- **Top-P（Nucleus Sampling）**：只从累积概率达到 P 的词中采样
+- **Top-K**：只从概率最高的 K 个词中采样
+
+## 产品经理需要知道的
+
+- 代码生成、事实问答：调低 Temperature（0.1-0.3）
+- 创意写作、广告文案：调高 Temperature（0.7-1.0）
+- 同样 Prompt 每次输出不同，根源在此

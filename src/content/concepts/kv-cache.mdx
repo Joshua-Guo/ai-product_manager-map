@@ -1,0 +1,22 @@
+---
+title: KV Cache
+layer: L0
+connections: [transformer, sampling]
+hasDemo: false
+summary: 推理加速的关键技术，缓存历史 Token 的 Key-Value，避免重复计算
+order: 3
+---
+
+## 是什么
+
+在 Transformer 推理时，每生成一个新词都需要用到历史词的 K（Key）和 V（Value）矩阵。KV Cache 将这些矩阵缓存起来，后续生成直接复用，显著降低延迟。
+
+## 在 AI 全栈中的位置
+
+Inference Framework（推理框架）层的核心优化，vLLM 的核心竞争力之一。
+
+## 产品经理需要知道的
+
+- KV Cache 占显存，上下文越长占用越大
+- 阿里云等平台的"上下文缓存"计费优惠，本质是 KV Cache 复用
+- 长对话场景需要关注 KV Cache 的显存上限
