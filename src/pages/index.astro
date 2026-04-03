@@ -1,17 +1,25 @@
 ---
-// AI 产品经理知识全景地图 - 首页
----
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import KnowledgeGraph from '../components/KnowledgeGraph';
 
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI 产品经理知识全景地图</title>
-  </head>
-  <body>
-    <main>
-      <h1>AI 产品经理知识全景地图</h1>
-      <p>正在建设中...</p>
-    </main>
-  </body>
-</html>
+const concepts = await getCollection('concepts');
+const graphData = {
+  nodes: concepts.map(c => ({
+    id: c.slug,
+    title: c.data.title,
+    layer: c.data.layer,
+    summary: c.data.summary,
+    order: c.data.order,
+  })),
+  links: concepts.flatMap(c =>
+    c.data.connections.map((target: string) => ({
+      source: c.slug,
+      target,
+    }))
+  ),
+};
+---
+<Layout>
+  <KnowledgeGraph data={graphData} client:only="react" />
+</Layout>
