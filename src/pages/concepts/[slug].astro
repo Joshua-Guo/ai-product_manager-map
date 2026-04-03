@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import ConceptLayout from '../../layouts/ConceptLayout.astro';
+import TransformerDemo from '../../components/demos/TransformerDemo';
+import RagDemo from '../../components/demos/RagDemo';
+import ReActDemo from '../../components/demos/ReActDemo';
+import TrainingDemo from '../../components/demos/TrainingDemo';
+
+export async function getStaticPaths() {
+  const concepts = await getCollection('concepts');
+  return concepts.map(c => ({ params: { slug: c.slug }, props: { concept: c } }));
+}
+
+const { concept } = Astro.props;
+const { Content } = await render(concept);
+
+const demoComponent = concept.data.demoComponent ?? null;
+---
+<ConceptLayout
+  title={concept.data.title}
+  layer={concept.data.layer}
+  summary={concept.data.summary}
+>
+  <Content />
+  {demoComponent && (
+    <div style="margin:32px 0;">
+      <h2 style="font-size:16px;font-weight:600;color:#e2e8f0;margin-bottom:16px;">交互演示</h2>
+      {demoComponent === 'TransformerDemo' && <TransformerDemo client:visible />}
+      {demoComponent === 'RagDemo' && <RagDemo client:visible />}
+      {demoComponent === 'ReActDemo' && <ReActDemo client:visible />}
+      {demoComponent === 'TrainingDemo' && <TrainingDemo client:visible />}
+    </div>
+  )}
+</ConceptLayout>

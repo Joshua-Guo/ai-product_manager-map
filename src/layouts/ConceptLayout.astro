@@ -1,0 +1,30 @@
+---
+import Layout from './Layout.astro';
+interface Props { title: string; layer: string; summary: string; }
+const { title, layer, summary } = Astro.props;
+const LAYER_COLORS: Record<string, string> = {
+  L0: '#818cf8', L1: '#34d399', L2: '#fb923c', L3: '#e879f9',
+};
+const color = LAYER_COLORS[layer] ?? '#64748b';
+---
+<Layout title={title}>
+  <div style={`max-width:760px;margin:0 auto;padding:40px 24px;min-height:100dvh;overflow-y:auto;`}>
+    <a href="/ai-product_manager-map" style="font-size:13px;color:#64748b;display:block;margin-bottom:24px;">← 返回图谱</a>
+    <span style={`display:inline-block;padding:2px 10px;border-radius:4px;background:${color}22;color:${color};font-size:12px;margin-bottom:12px;`}>{layer}</span>
+    <h1 style="font-size:28px;font-weight:700;margin-bottom:10px;">{title}</h1>
+    <p style="font-size:15px;color:#94a3b8;line-height:1.7;margin-bottom:32px;">{summary}</p>
+    <hr style="border:none;border-top:1px solid #1f2937;margin-bottom:32px;" />
+    <div class="prose">
+      <slot />
+    </div>
+  </div>
+</Layout>
+
+<style is:global>
+  .prose { font-size: 15px; line-height: 1.8; color: #cbd5e1; }
+  .prose h2 { font-size: 18px; font-weight: 600; color: #e2e8f0; margin: 28px 0 12px; }
+  .prose p { margin-bottom: 16px; }
+  .prose ul, .prose ol { padding-left: 20px; margin-bottom: 16px; }
+  .prose li { margin-bottom: 6px; }
+  .prose strong { color: #e2e8f0; }
+</style>
